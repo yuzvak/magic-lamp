@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/main/main.css">
+  <link rel="stylesheet" href="/static/main/media.css">
+  <link rel="shortcut icon" href="/static/favico.ico" type="image/x-icon">
+  <title>Magic Lamp</title>
+</head>
+<body>
+  <!-- Header starts -->
+<header class="header">
+  <div class="container">
+    <div class="header_position">
+      <div class="logo">
+        magic lamp
+      </div>
+      <nav class="begin">
+        <a class="nav_link_About" href="#block1" onclick="slowScroll('#block1')">About</a>
+        <a class="nav_link" onclick="render('work')" href="#">Work</a>
+        <% if(user == null) {%>
+        <a class="nav_link" href="/login">Log in</a>
+        <% } else {%>
+        <a class="nav_link" href="/manage"><%= user.username %>!</a>
+        <% } %>
+      </nav>
+    </div>
+  </div>
+</header>
+  <!-- Header ends -->
+
+<!-- Intro starts -->
+<div class="intro" id="intro">
+  <div class="container">
+    <div class="clock">
+      <img src="/static/main/images/logo.png" class="Y-Tech-adaptive">
+    </div>
+
+  </div>
+<!-- About Lamp starts -->
+<div class="intro-2">
+  <div class="container-2"  id="block1">
+    <div class="title_1">
+      What we do
+    </div>
+    <div class="title_2">
+      story about us
+    </div>
+    <div class="text_aboutUs">
+      We are Y-Tech. The team with creative members, and interestig aim.Our team consists of 6 different persons. 
+      For six monthes we tried to be a real team and to do real teamwork.
+      Everyone of us is individual with great ideas and big minds.
+      If you use MadicLamp, you  know how much efforts
+       we made in this project, everyone take an essential part in it.<br>
+      We hope you will like it.
+      <br>
+       We are creating MAGIC
+</div>
+   <!-- Pictures -->
+  <div class="about">
+     <div class="about_item">
+        <div class="about_img">
+          <img src="/static/main/images/about1.png" alt="" class="img-adaptive">
+        </div>
+     </div>
+       <div class="about_item">
+      <div class="about_img">
+      <img src="/static/main/images/about2.png" alt="" class="img-adaptive">
+      </div>
+    </div>
+    <div class="about_item">
+      <div class="about_img">
+        <img src="/static/main/images/about3.png" alt="" class="img-adaptive">
+      </div>
+   </div>
+  </div>
+      <!-- Pictures end -->
+      <!-- About Lamp ends -->
+  </div>
+</div>
+
+<!-- Footer Starts -->
+<footer class="footer">
+  <div class="container-3"> 
+    <div class="some_1">Copyright © 2020 <Y-Tech></Y-Tech>. All rights reserved.</div>
+    <div class="some_2">Privacy Policy</div>
+    <div class="some_3">Terms of Use</div>
+    <div class="some_4">Sales and Refunds</div>
+  </div>
+</footer>
+<!-- Footer Ends -->
+</div>
+<!-- Intro Ends -->
+
+<!--Sockets-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script type="text/javascript">
+    const socket = io();
+    
+    socket.on('onlineUsers',(b) => {
+        console.log('users',b.users)
+    });
+</script>
+<!-- For header scroll start -->
+<script src="/static/main/app.js"></script>
+<!-- For header scroll ends -->
+<!-- For bc starts -->
+<script src="/static/main/three.r95.min.js"></script>
+<script src="/static/main/vanta.birds.min.js"></script>
+<script src="/static/main/vanta.js"></script> 
+<!-- For bc ends -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+<script src="/static/main/AboutScroll.js"></script>
+
+</body>
+</html>

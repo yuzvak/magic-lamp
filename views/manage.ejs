@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/manage/main.css">
+  <link rel="stylesheet" href="/static/manage/preloader.css">
+  <link rel="shortcut icon" href="/static/favico.ico" type="image/x-icon">
+  <title>Особистий кабінет</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+<body>
+
+  <!-- Прелоадер початок -->
+  <div class="preloader">
+      <div class="ytech">
+          <img src="/static/YTECH.png" alt="" class='animated flash'>
+      </div>
+  </div>
+  <!-- Прелоадер кінець -->
+
+    <div class="container">
+
+       <!-- Header starts -->
+      <header class="header">
+        <div class="container">
+          <div class="header_position">
+            <div class="logo">
+              magic lamp
+            </div>
+            <nav class="begin">
+              <a class="nav_link" href="/">Головна</a>
+              <a class="nav_link" href="#">faq</a>
+              <a class="nav_link" href="/logout">вихід</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+  <!-- Header ends -->
+
+      <div class="block_in_container">
+        <ul id="tabs">
+          <li><a href="#" title="tab1" class="tab1">Колір</a></li>
+          <li><a href="#" title="tab2" class="tab2">Будильник</a></li>
+          <li><a href="#" title="tab3" class="tab3">Яскравість</a></li>
+          <li><a href="#" title="tab4" class="tab4">Календар</a>
+          </ul>
+        <div id="content">
+
+          <!-- Колір початок -->
+          <div id="tab1">
+            <ul id="fucking_buttons">
+              <% if (lamp.color == 'red') {%>
+              <li id="current_button"><a href="#" class="red-butt">Червоний</a></li>
+              <%} else {%>
+              <li><a href="#" class="red-butt">Червоний</a></li>
+              <% }%>
+              <% if (lamp.color == 'yellow') {%>
+              <li id="current_button"><a href="#" class="yellow-butt">Жовтий</a></li>
+              <%} else {%>
+              <li><a href="#" class="yellow-butt">Жовтий</a></li>
+              <% }%>
+              <% if (lamp.color == 'blue') {%>
+              <li id="current_button"><a href="#" class="blue-butt">Синій</a></li>
+              <%} else {%>
+              <li><a href="#" class="blue-butt">Синій</a></li>
+              <% }%>
+              <% if (lamp.color == 'green') {%>
+              <li id="current_button"><a href="#" class="green-butt">Зелений</a></li>
+              <%} else {%>
+              <li><a href="#" class="green-butt">Зелений</a></li>
+              <% }%>
+            </ul>
+          </div>
+          <!-- Колір кінець -->
+
+          <!-- Будильник початок -->
+          <div id="tab2">
+
+    <div id="ctime">
+      <h1 class="hat"><span class="ergo">
+        Точний час
+      </span></h1>
+      <div class="square">
+        <div class="digits" id="chr">00</div>
+        <div class="text">Години</div>
+      </div>
+      <div class="square">
+        <div class="digits" id="cmin">00</div>
+        <div class="text">Хвилини</div>
+      </div>
+      <div class="square">
+        <div class="digits" id="csec">00</div>
+        <div class="text">Секунди</div>
+      </div>
+    </div>
+
+
+    <div id="tpick">
+      <h1 class="hat">
+        Завести Будильник
+      </h1>
+      <div id="tpick-h"></div>
+      <div id="tpick-m"></div>
+      <div id="tpick-s"></div>
+      <div>
+        <input type="button" value="Наставити" id="tset"/>
+        <input type="button" value="Скинути" id="treset" disabled/>
+      </div>
+    </div>
+
+    <audio id="alarm-sound" loop>
+      <source src="wake-up-sound.mp3" type="audio/mp3">
+    </audio>
+
+          </div>
+            
+          <!-- Будильник кінець -->
+
+          <!-- Яскравість початок -->
+          <div id="tab3"  class="slidecontainer">
+           <center>
+            <input type="range" min="1" max="100" value="<%= lamp.brightness %>" class="slider" id="myRange">
+            <p>Рівень: <span id="demo"></span></p>
+            </center>
+          </div>
+          <!-- Яскравість кінець  -->
+
+          <!-- Календар початок -->
+          <div id="tab4">
+            <div class="month">      
+              <ul>
+                <li class="prev">❮</li>
+                <li class="next">❯</li>
+                <li>
+                  <span class="mon">Квітень</span><br>
+                  <span style="font-size:18px" class="mon">2020</span>
+                </li>
+              </ul>
+            </div>
+            
+            <ul class="weekdays">
+              <li>Пон</li>
+              <li>Вів</li>
+              <li>Сер</li>
+              <li>Чет</li>
+              <li>Пт</li>
+              <li>Суб</li>
+              <li>Нед</li>
+            </ul>
+            
+            <ul class="days">  
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li>10</li>
+              <li>11</li>
+              <li>12</li>
+              <li>13</li>
+              <li>15</li>
+              <li>15</li>
+              <li>16</li>
+              <li>17</li>
+              <li>18</li>
+              <li>19</li>
+              <li>20</li>
+              <li>21</li>
+              <li><span class="active">22</span></li>
+              <li>23</li>
+              <li>24</li>
+              <li>25</li>
+              <li>26</li>
+              <li>27</li>
+              <li>28</li>
+              <li>29</li>
+              <li>30</li>
+              <li>31</li>
+            </ul>
+          </div>
+          <!-- Календар кінець -->
+        </div>
+        <div class="info-text">
+           <small>
+               Останнє оновлення: 01.01.2000 (00:00)
+               <br>
+               Версія: 0.7.0
+           </small>
+        </div>
+      </div>
+    </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script type="text/javascript">
+        const socket = io();
+        
+        socket.emit('join', {id: '<%=lamp.id%>'});
+                             
+        socket.on("getData", (data) => {
+            console.log(data)
+            switch (data.key) {
+                case 'brightness': {
+                   document.getElementById("demo").innerHTML = parseInt(data.value);
+                   document.getElementById("myRange").value = parseInt(data.value);
+                };
+                case 'color': {
+                    switch (data.value) {
+                        case 'red': color = 'ЧЕРВОНИЙ'; break;
+                        case 'yellow': color = 'ЖОВТИЙ';  break;
+                        case 'blue': color = 'СИНІЙ'; break;
+                        case 'green': color = 'ЗЕЛЕНИЙ'; break;
+                    }
+                    $("#fucking_buttons li").attr("id","");
+                    let x = document.getElementById('fucking_buttons');
+                    for(let i = 0; i < x.childElementCount; i++) {
+                        if(x.children[i].innerText == color) {
+                            x.children[i].id = "current_button";
+                        }
+                    }
+                };
+            }
+        })
+                    
+        setInterval(() => {
+            if(document.getElementById("current_button")){
+                switch (document.getElementById("current_button").innerText) {
+                    case 'ЧЕРВОНИЙ': color = 'red'; break;
+                    case 'ЖОВТИЙ': color = 'yellow';  break;
+                    case 'СИНІЙ': color = 'blue'; break;
+                    case 'ЗЕЛЕНИЙ': color = 'green'; break;
+                    default: null;
+                };
+            } else {color = null}
+            socket.emit('UpdateData', {token: '<%= session %>', id: '<%= lamp.id %>', color: color, brightness: document.getElementById("myRange").value});
+        }, 100)
+    </script>
+  <script src="/static/manage/for_alarm_clock.js"></script>
+  <script src="/static/manage/app.js"></script>
+  <script src="/static/manage/another_script.js"></script>
+  <script src="/static/manage/activeButton.js"></script>
+  <script src="/static/manage/preloader.js"></script>
+
+
+</body>
+</html>

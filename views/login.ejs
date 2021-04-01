@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Magic Lamp | Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Caladea&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/login/main.css">
+    <link rel="stylesheet" href="/static/login/media.css">
+    <link rel="shortcut icon" href="/static/favico.ico" type="image/x-icon">
+  </head>
+  <body>
+    <!-- MENU STARTS -->
+    <header class="header">
+      <div class="container">
+        <div id="toggle-icon"><i class="material-icons">menu</i></div>
+        <div class="menu-overlay">
+          <ul class="menu">
+            <li><a href="/">Головна</a></li>
+            <li><a href="#">Тест</a></li>
+          </ul>
+         </div>
+        </div>
+  <!-- script for menu -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> <!-- Бібліотека jquery-->
+  <script>
+      $('#toggle-icon').click(function(){
+        $('.menu-overlay').toggleClass('active');
+        if( $('.menu-overlay').hasClass('active') ){
+          $('.material-icons').text('menu_open');
+        } else {
+          $('.material-icons').text('menu');
+        }
+      });
+  </script>
+  </header>
+  <!-- script for menu end -->
+    <!-- MENU ENDS -->
+
+    <!-- LOGIN STARTS -->
+      <form action="/login" method="post" class="login-form">
+        <h1>Вхід</h1>
+        <% if (error != null) {%>
+          <center>
+              <div class="wrong_data">
+                  <div class="error">
+                      Неправильний логін або пароль
+                  </div>
+              </div>
+          </center>
+        <%}%>
+        <div class="form-group">
+        <div class="txtb">
+          <input type="text" name="username" required>
+          <span data-placeholder="Ім'я користувача"></span>
+        </div>
+
+        <div class="txtb">
+          <input type="password" name="password" required>
+          <span data-placeholder="Пароль"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="Вхід">
+
+        <div class="bottom-text">
+          Немає аккаунту? <a href="#">Зареєструватись</a>
+        </div>
+        </div>
+      </form>
+      <!-- Scripts for Login -->
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+      </script>
+      <!-- ------------------  -->
+      <script>
+        var Item = $(".logbtn");
+        var activeItem = $("body");
+        Item.hover(function() {
+          activeItem.toggleClass("body__active");
+        });
+      </script>
+      <!-- script for login end -->
+    <!-- LOGIN ENDS -->
+
+  </body>
+</html>

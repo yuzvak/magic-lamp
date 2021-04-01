@@ -1,0 +1,18 @@
+{
+	"TemplateLamp": {
+		"user": {
+			"username": "Admin",
+			"password": "Admin",
+			"telegram": "269539553"
+		},
+		"lamp": {
+			"status": "off",
+			"id": "TemplateLamp",
+			"color": "blue",
+			"brightness": "97",
+			"timeToOff": null,
+			"timeToOn": null,
+			"lastUpdate": "01.01.2000 (00:00)"
+		}
+	}
+}
